@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-transform: capitalize;
+    background-image: url(../assets/img/fondo-main-2.jpg);
+}

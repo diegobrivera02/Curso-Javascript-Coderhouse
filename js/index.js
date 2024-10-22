@@ -9,7 +9,7 @@ function agregarJuego() {
   if (!titulo || !consola || isNaN(valor) || valor <= 0 || !estado) {
     console.log("Entrada inválida. Por favor, intente de nuevo.");
     return agregarJuego();
-  }∫
+  }
 
   let juego = {
     titulo,

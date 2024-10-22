@@ -5,6 +5,11 @@ function agregarJuego() {
   let consola = prompt("Ingrese la plataforma del videojuego (Nintendo, Playstation, Xbox, Sega, etc):");
   let valor = parseFloat(prompt("Ingrese el valor del videojuego:"));
 
+  if (!titulo || !consola || isNaN(valor) || valor <= 0) {
+    console.log("Entrada inválida. Por favor, intente de nuevo.");
+    return agregarJuego();
+  }
+
   let juego = {
     titulo,
     consola,
@@ -19,26 +24,23 @@ function agregarJuego() {
     agregarJuego();
   } else {
     mostrarJuegos();
-    mostrarTotal();
+    mostrarTotal(); 
   }
 }
 
 function mostrarJuegos() {
   console.log("Tus videojuegos en venta:");
-  for (let i = 0; i < juegos.length; i++) {
-    console.log(`- ${juegos[i].titulo} (${juegos[i].consola}): ${juegos[i].valor}`);
-  }
+  juegos.forEach(juego => {
+    console.log(`- ${juego.titulo} (${juego.consola}): ${juego.valor}`);
+  });
 }
 
 function calcularTotal() {
-  let total = 0;
-  for (let i = 0; i < juegos.length; i++) {
-    total += juegos[i].valor;
-  }
-  return total;
+  return juegos.reduce((total, juego) => total + juego.valor, 0);
 }
 
 function mostrarTotal() {
   console.log(`El valor total de tus videojuegos en venta es: ${calcularTotal()}`);
 }
+
 agregarJuego();

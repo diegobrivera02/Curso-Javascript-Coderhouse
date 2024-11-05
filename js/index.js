@@ -1,38 +1,58 @@
-let juegos = [];
+let juegos = JSON.parse(localStorage.getItem("juegos")) || [];
 
 function agregarJuego() {
-  let titulo = prompt("Ingrese el nombre del videojuego a vender:");
-  let consola = prompt("Ingrese la plataforma del videojuego (Nintendo, Playstation, Xbox, Sega, etc):");
-  let valor = parseFloat(prompt("Ingrese el valor del videojuego:"));
+  const titulo = document.getElementById("tituloInput").value.trim();
+  const consola = document.getElementById("consolaInput").value.trim();
+  const valor = parseFloat(document.getElementById("valorInput").value);
 
+  
   if (!titulo || !consola || isNaN(valor) || valor <= 0) {
-    console.log("Entrada inválida. Por favor, intente de nuevo.");
-    return agregarJuego();
+    alert(
+      "Entrada inválida. Por favor, complete todos los campos correctamente."
+    );
+    return;
   }
 
-  let juego = {
-    titulo,
-    consola,
-    valor
-  };
-
+  const juego = { titulo, consola, valor };
   juegos.push(juego);
-  console.log(`Se agregó el videojuego ${titulo} (${consola}) con un valor de ${valor}`);
+  localStorage.setItem("juegos", JSON.stringify(juegos));
 
-  let respuesta = prompt("¿Desea agregar otro videojuego? (si/no):");
-  if (respuesta.toLowerCase() === "si") {
-    agregarJuego();
-  } else {
-    mostrarJuegos();
-    mostrarTotal(); 
-  }
+  document.getElementById("tituloInput").value = "";
+  document.getElementById("consolaInput").value = "";
+  document.getElementById("valorInput").value = "";
+
+  mostrarJuegos();
+  mostrarTotal();
 }
 
 function mostrarJuegos() {
-  console.log("Tus videojuegos en venta:");
-  juegos.forEach(juego => {
-    console.log(`- ${juego.titulo} (${juego.consola}): ${juego.valor}`);
+  const gameList = document.getElementById("gameList");
+  gameList.innerHTML = "";
+
+  juegos.forEach((juego, index) => {
+    const li = document.createElement("li");
+    li.textContent = `${juego.titulo} (${
+      juego.consola
+    }): $${juego.valor.toFixed(2)}`;
+    li.appendChild(createDeleteButton(index));
+    gameList.appendChild(li);
   });
+}
+
+function createDeleteButton(index) {
+  const button = document.createElement("button");
+  button.textContent = "Eliminar";
+  button.addEventListener("click", () => {
+    deleteGame(index);
+  });
+  return button;
+}
+
+function deleteGame(index) {
+  juegos.splice(index, 1); 
+  localStorage.setItem("juegos", JSON.stringify(juegos));
+  mostrarJuegos();
+  mostrarTotal();
 }
 
 function calcularTotal() {
@@ -40,7 +60,16 @@ function calcularTotal() {
 }
 
 function mostrarTotal() {
-  console.log(`El valor total de tus videojuegos en venta es: ${calcularTotal()}`);
+  document.getElementById(
+    "totalValue"
+  ).textContent = `El valor total de tus videojuegos en venta es: $${calcularTotal().toFixed(
+    2
+  )}`;
 }
 
-agregarJuego();
+document
+  .getElementById("addGameButton")
+  .addEventListener("click", agregarJuego);
+
+mostrarJuegos();
+mostrarTotal();

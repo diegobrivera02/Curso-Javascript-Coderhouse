@@ -1,19 +1,40 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css" />
 </head>
+
 <body>
+    <h1>El gamer nostálgico</h1>
+    <img src="./assets/img/logo web.png" alt="" />
+    <h2>Compra/venta de videojuegos</h2>
+    
 
+    <input type="text" id="tituloInput" placeholder="Nombre del videojuego" />
 
-<h1> El gamer nostalgico </h1>
-<h2> Compra/venta de videojuegos</h2>
-<img src="./assets/img/logo web.png" alt="">
-    <script src="./js/index.js">
-        
-    </script>
+    <input
+    type="text"
+    id="consolaInput"
+    placeholder="Plataforma del videojuego"
+    />
+
+    <input
+    type="number"
+    id="valorInput"
+    placeholder="Valor del videojuego"
+    step="0.01"
+    />
+
+    <button id="addGameButton">Agregar Videojuego</button>
+
+    <ul id="gameList"></ul>
+
+    <p id="totalValue">El valor total de tus videojuegos en venta es: $0.00</p>
+
+    <script src="./js/index.js"></script>
 </body>
 </html>

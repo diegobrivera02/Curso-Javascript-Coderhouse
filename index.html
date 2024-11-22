@@ -1,40 +1,77 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Pagina web dedicada a la industria de los videojuegos, anime, contenido geek y retro gaming">
+    <meta name="keywords"
+        content=" videojuegos, consolas, nintendo, playstation, xbox, sega, anime, retrogaming, videojuegos chile, noticias videojuegos">
+    <meta name="author" content="diego bustos">
+    <meta name="copyright" content="el gamer nostalgico">
+    <meta property="og:title" content="El Gamer Nostalgico">
+    <meta name="robots" content="index, follow">
+    <title>El Gamer Nostalgico - Portal de Videojuegos</title>
+    <link rel="shortcut icon" href="./assets/img/logo-nostalgico.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <h1>El gamer nostálgico</h1>
-    <img src="./assets/img/logo web.png" alt="" />
-    <h2>Compra/venta de videojuegos</h2>
+    <header>
+        <a href=""><img src="./assets/img/logo web.png" class="gamer-nostalgico" alt="logo oficial web"></a>
+        <div>
+            <nav>
+                <ul class="nav-bar">
+                    <li><a href="#">home</a></li>
+                    <li><a href="./pages/noticias.html">noticias</a></li>
+                    <li><a href="./pages/resenas.html">reseñas</a></li>
+                    <li><a href="./pages/retro.html">retro</a></li>
+                    <li><a href="./pages/nosotros.html">nosotros</a></li>
+                    <li>
+                        <form action=""><label for=""></label><input type="search"></form>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1>Compra/venta de videojuegos</h1>
+
+        <div>class</div>
+
+        <input type="text" id="tituloInput" placeholder="Nombre del videojuego" />
     
-
-    <input type="text" id="tituloInput" placeholder="Nombre del videojuego" />
-
-    <input
-    type="text"
-    id="consolaInput"
-    placeholder="Plataforma del videojuego"
-    />
-
-    <input
-    type="number"
-    id="valorInput"
-    placeholder="Valor del videojuego"
-    step="0.01"
-    />
-
-    <button id="addGameButton">Agregar Videojuego</button>
-
-    <ul id="gameList"></ul>
-
-    <p id="totalValue">El valor total de tus videojuegos en venta es: $0.00</p>
+        <input
+        type="text"
+        id="consolaInput"
+        placeholder="Plataforma del videojuego"
+        />
+    
+        <input
+        type="number"
+        id="valorInput"
+        placeholder="Valor del videojuego"
+        step="0.01"
+        />
+    
+        <button id="addGameButton">Agregar Videojuego</button>
+    
+        <ul id="gameList"></ul>
+    
+        <p id="totalValue">El valor total de tus videojuegos en venta es: $0.00</p>
+    </main>
 
     <script src="./js/index.js"></script>
+
 </body>
+<footer>
+    <p>Todos los derechos reservados © 2024 El Gamer Nostalgico</p>
+</footer>
+
 </html>
